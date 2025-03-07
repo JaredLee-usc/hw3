@@ -84,7 +84,28 @@ Node* llfilter(Node* head, Comp pred)
     // Provide your implementation below
     //*********************************************
 
-
+    // base case
+    if (head == nullptr) {
+        return nullptr;
+    }
+    
+    // recursively through rest of list
+    head->next = llfilter(head->next, pred);
+    
+    // check if current node should be removed
+    if (pred(head->val)) {
+        // store the rest of list
+        Node* temp = head->next;
+        
+        // remove current node
+        delete head;
+        
+        // return rest of list as new head
+        return temp;
+    }
+    
+    // keep the current node and return it as head
+    return head;
 }
 
 #endif

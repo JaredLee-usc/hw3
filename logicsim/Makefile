@@ -14,7 +14,7 @@ wire.o: wire.cpp wire.h
 	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c wire.cpp
 gate.o: gate.cpp wire.h
 	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c gate.cpp
-circuit.o: circuit.cpp wire.h gate.h event.h
+circuit.o: circuit.cpp wire.h gate.h event.h ../heap.h
 	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c circuit.cpp
 
 clean:
